@@ -30,7 +30,7 @@ input_text = st.text_area("Enter your prompt here: ", height=150, placeholder="T
 if st.button("Generate Text"):
   if input_text.strip():
     # Tokenize input and get generated text
-    max_length = 100
+    max_length = 55
     input_ids = tokenizer(input_text, return_tensors="pt")
     input_ids = input_ids['input_ids'].to(device)
 
