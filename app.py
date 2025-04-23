@@ -6,6 +6,12 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 # Set device
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
+
+st.set_page_config(page_title="GPT-2 Text Generator", layout="centered")
+st.title("GPT-2 Text Generator")
+st.markdown("Type a prompt and let GPT-2 do the rest. Customize generation settings below.")
+
+
 # Load model and tokenizer
 @st.cache_resource
 def load_model():
@@ -16,9 +22,6 @@ def load_model():
 
 tokenizer, model = load_model()
 
-st.set_page_config(page_title="GPT-2 Text Generator", layout="centered")
-st.title("GPT-2 Text Generator")
-st.markdown("Type a prompt and let GPT-2 do the rest. Customize generation settings below.")
 
 # Text Input
 input_text = st.text_area("Enter your prompt here: ", height=150, placeholder="Type something here...")
