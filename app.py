@@ -15,7 +15,7 @@ st.markdown("Type a prompt and let GPT-2 do the rest.")
 # Load model and tokenizer
 @st.cache_resource
 def load_model():
-    model_name = "gpt2"
+    model_name = "gpt2-medium"
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
     return tokenizer, model
@@ -30,7 +30,7 @@ input_text = st.text_area("Enter your prompt here: ", height=150, placeholder="T
 if st.button("Generate Text"):
   if input_text.strip():
     # Tokenize input and get generated text
-    max_length = 128
+    max_length = 100
     input_ids = tokenizer(input_text, return_tensors="pt")
     input_ids = input_ids['input_ids'].to(device)
 
