@@ -4,18 +4,18 @@ import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
 # Set device
-device = "cuda" if torch.cuda.is_available() else "cpu"
+device = "cuda"
 
 
 st.set_page_config(page_title="GPT-2 Text Generator", layout="centered")
 st.title("GPT-2 Text Generator")
-st.markdown("Type a prompt and let GPT-2 do the rest. Customize generation settings below.")
+st.markdown("Type a prompt and let GPT-2 do the rest.")
 
 
 # Load model and tokenizer
 @st.cache_resource
 def load_model():
-    model_name = "gpt2-xl"
+    model_name = "gpt2-medium"
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
     return tokenizer, model
