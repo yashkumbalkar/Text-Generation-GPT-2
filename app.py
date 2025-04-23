@@ -40,11 +40,11 @@ if st.button("Generate Text"):
     generated_text = original_text.replace('\n', ' ').strip()
 
     if '<|endoftext|>' in generated_text:
-      clean_text = generated_text.replace('<|endoftext|>','')
+        generated_text = generated_text.replace('<|endoftext|>','')
 
     # Display the prediction result
     st.markdown("### 💬 Generated Output:")
-    st.success(clean_text)
+    st.success(generated_text)
   else:
     st.error("Please enter some text")
 
